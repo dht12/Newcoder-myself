@@ -1,1 +1,40 @@
-start 与run 的区别
+/**
+ * 线程用run启动时，就相当普通方法，
+ * start启动时，才相当运行多个线程
+ */
+class MyThread extends  Thread{
+    private  String s;
+    public MyThread(String s){
+        this.s=s;
+    }
+    public void run(){
+        for(int i=0;i<10;i++){
+
+            System.out.println(s+"第"+i+"次");
+        }
+
+    }
+
+}
+public class TestThreadRunAndStart {
+    public static void main(String[] args) {
+
+        MyThread m1 = new MyThread("A");
+        MyThread m2 = new MyThread("B");
+        MyThread m3 = new MyThread("c");
+        //如果用run的话就是各自按顺序输出，并没有体现出线程的性质
+//        m1.run();
+//        m2.run();
+//        m3.run();
+        //只能用start方法才能启动线程
+        m1.start();
+        //报java.lang.IllegalThreadStateException，就线程重复启动造成的，是RuntimeException
+        //每一个线程对象只能启动一次，不能启动多次
+        // m1.start();
+        m2.start();
+        m3.start();
+
+
+
+    }
+}
