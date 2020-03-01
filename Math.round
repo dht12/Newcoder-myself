@@ -1,0 +1,14 @@
+public static void main(String[] args) {
+		//long i = Math.round(15.49);
+		long i = Math.round(-15.49);//-15
+		long b = Math.round(-15.5);//***********-15
+		long c = Math.round(-15.51);//-16
+		long d = Math.round(15.5);//************16
+		long k = Math.round(15.51);//16
+		System.out.println(i);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(k);
+
+	}
