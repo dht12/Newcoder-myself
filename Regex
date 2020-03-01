@@ -1,0 +1,23 @@
+public static void main(String[] args) {
+		/*
+		 * 前面都是不能提取单个数字
+		 * 用正则表达式去除字符串中的非数字
+		 */
+		String s="a3c4bfdfsd3434";
+		//正则表达式
+		String regex="[^0-9]";
+		Pattern p=Pattern.compile(regex);
+		Matcher m=p.matcher(s);
+		//java.util.regex.Matcher[pattern=[^0-9] region=0,14 lastmatch=]
+		System.out.println(m.replaceAll("").trim());
+		
+		//不用正则表达的方法
+		String str2="";
+		for(int i=0;i<s.length();i++){
+			if(s.charAt(i)>=48&&s.charAt(i)<=57){
+				str2+=s.charAt(i);
+			}
+		}
+		System.out.println(str2);
+				
+	}
