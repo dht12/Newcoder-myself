@@ -1,0 +1,40 @@
+//叫return 是因为我不理解的点在那
+public class TestSuper1 {
+
+	public static void main(String[] args) {
+		new B().getValue();
+	
+	}
+	static class A{
+		protected int value;
+		public A(int v){
+			setValue(v);
+		}
+		public void setValue(int value){
+			this.value=value;
+		
+		}
+		public int getValue(){
+			try{
+				value ++;
+				//这句就是如果下次再使用value时的值，所以第二次输出是4
+				return value;
+			}finally{
+				this.setValue(value);
+				System.out.println(value);
+			}
+		}
+	}
+	static class B extends A{
+		public  B(){
+			super(5);
+			setValue(getValue()-3);
+		}
+	}
+	public	void int1(int a,int b){
+		System.out.println(23);
+	}
+	
+
+}
+
